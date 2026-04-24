@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tasks"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#1A1A1A"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Tab Layout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:tabSelectedTextColor="#6200EE"
+            app:tabIndicatorColor="#6200EE"
+            app:tabTextColor="#999999"
+            app:tabMode="fixed"
+            app:tabGravity="fill">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's Tasks" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upcoming" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completed" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- Task RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewTasks"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="80dp"
+            android:clipToPadding="false" />
+
+    </LinearLayout>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:src="@android:drawable/ic_input_add"
+        app:backgroundTint="#6200EE"
+        app:tint="@android:color/white"
+        app:fabSize="normal" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

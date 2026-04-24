@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Preview Lab</string>
+    <string name="task_management_nto_do_list"><![CDATA[Task Management &\nTo-Do List]]></string>
+    <string name="your_today_s_task">Your today\'s task</string>
+    <string name="almost_done">almost done!</string>
+    <string name="view_task">View Task</string>
+    <string name="grocery_shopping_app_design">Grocery shopping app design</string>
+    <string name="personal_project">Personal Project</string>
+    <string name="uber_eats_redesign_challenge">Uber Eats redesign challenge</string>
+    <string name="ui_ux_fundamentals_revision">UI/UX fundamentals revision</string>
+    <string name="daily_study">Daily Study</string>
+    <string name="_85">85%</string>
+    <string name="livia_vaccaro">Livia Vaccaro</string>
+    <string name="office_project">Office Project</string>
+</resources>

@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6FB">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profileImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_user"
+            app:shapeAppearanceOverlay="@style/CircleImage"
+            android:scaleType="centerCrop"
+            android:background="#E0E0E0"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingStart="12dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello!"
+                android:textColor="#888888"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/livia_vaccaro"
+                android:textColor="#222222"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_notification" />
+    </LinearLayout>
+
+    <!-- SCROLLABLE CONTENT -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavWrapper">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- BANNER CARD -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_banner_gradient"
+                    android:padding="20dp">
+
+                    <!-- Three-dot menu -->
+                    <ImageView
+                        android:id="@+id/bannerMenu"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_more"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        app:tint="#FFFFFF" />
+
+                    <!-- Banner text -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/your_today_s_task"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/almost_done"
+                            android:textColor="#FFFFFF"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="36dp"
+                            android:layout_marginTop="10dp"
+                            app:cardCornerRadius="18dp"
+                            app:cardElevation="0dp"
+                            android:backgroundTint="#FFFFFF">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/view_task"
+                                android:textColor="#6C4FEF"
+                                android:textSize="13sp"
+                                android:textStyle="bold"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp"
+                                android:layout_gravity="center" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                    <!-- Progress circle placeholder -->
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progressCircle"
+                        android:layout_width="150dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="8dp"
+                        android:progress="85"
+                        app:indicatorColor="#FFFFFF"
+                        app:trackColor="#5A3DBF"
+                        app:trackThickness="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_85"
+                        android:textColor="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="34dp" />
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ── IN PROGRESS SECTION ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp">
+
+                <!-- Section Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="In Progress"
+                        android:textColor="#1A1A2E"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:text="6"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_badge_purple" />
+                </LinearLayout>
+
+                <!-- Horizontal scroll for In-Progress cards -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:clipToPadding="false"
+                    android:paddingEnd="16dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!-- Card 1: Office Project -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="200dp"
+                            android:layout_height="130dp"
+                            android:layout_marginEnd="12dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#C1CEF6">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="14dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="Office Project"
+                                        android:textColor="#8888AA"
+                                        android:textSize="12sp" />
+
+                                    <ImageView
+                                        android:layout_width="28dp"
+                                        android:layout_height="28dp"
+                                        android:src="@drawable/ic_office"
+                                        android:background="@drawable/bg_icon_circle_pink"
+                                        android:padding="6dp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/grocery_shopping_app_design"
+                                    android:textColor="#1A1A2E"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+
+                                <!-- Progress bar -->
+                                <ProgressBar
+                                    android:layout_width="match_parent"
+                                    android:layout_height="5dp"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:progress="60"
+                                    android:progressDrawable="@drawable/progress_blue"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- Card 2: Personal Project -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="200dp"
+                            android:layout_height="130dp"
+                            android:layout_marginEnd="12dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#FFF0EE">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="14dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/personal_project"
+                                        android:textColor="#8888AA"
+                                        android:textSize="12sp" />
+
+                                    <ImageView
+                                        android:layout_width="28dp"
+                                        android:layout_height="28dp"
+                                        android:src="@drawable/ic_user"
+                                        android:background="@drawable/bg_icon_circle_purple"
+                                        android:padding="6dp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/uber_eats_redesign_challenge"
+                                    android:textColor="#1A1A2E"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+
+                                <!-- Progress bar -->
+                                <ProgressBar
+                                    android:layout_width="match_parent"
+                                    android:layout_height="5dp"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:progress="35"
+                                    android:progressDrawable="@drawable/progress_red"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <!-- Card 3: Daily Study -->
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="200dp"
+                            android:layout_height="130dp"
+                            android:layout_marginEnd="12dp"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="#EDFAF4">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="14dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:text="@string/daily_study"
+                                        android:textColor="#8888AA"
+                                        android:textSize="12sp" />
+
+                                    <ImageView
+                                        android:layout_width="28dp"
+                                        android:layout_height="28dp"
+                                        android:src="@drawable/ic_file"
+                                        android:background="@drawable/bg_icon_circle_green"
+                                        android:padding="6dp" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="@string/ui_ux_fundamentals_revision"
+                                    android:textColor="#1A1A2E"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:layout_marginTop="8dp" />
+
+                                <!-- Progress bar -->
+                                <ProgressBar
+                                    android:layout_width="match_parent"
+                                    android:layout_height="5dp"
+                                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                    android:progress="80"
+                                    android:progressDrawable="@drawable/progress_green"
+                                    android:layout_marginTop="8dp" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- ── TASK GROUPS SECTION ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="16dp">
+
+                <!-- Section Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Task Groups"
+                        android:textColor="#1A1A2E"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:text="4"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="@drawable/bg_badge_purple" />
+                </LinearLayout>
+
+                <!-- Task Group items rendered via RecyclerView -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerTasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- BOTTOM NAV -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomNavWrapper"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_bottom_nav"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="#2791d8"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_home" />
+            <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_calendar" />
+            <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/navTask"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_file" />
+            <ImageView android:layout_width="0dp" android:layout_height="24dp" android:layout_weight="1" android:src="@drawable/ic_user" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
